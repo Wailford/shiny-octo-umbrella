@@ -1,0 +1,1011 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SBA Pro — The Smart School System for Ghana</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&family=Oswald:wght@700;900&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --red:   #CF0921;
+    --gold:  #FCD116;
+    --green: #006B3F;
+    --dark:  #0A1628;
+    --blue:  #1565C0;
+    --light-blue: #E8F1FF;
+    --white: #ffffff;
+    --text:  #1a2540;
+  }
+
+  body {
+    font-family: 'Nunito', sans-serif;
+    background: #d0d8e8;
+  }
+
+  .page {
+    width: 210mm;
+    min-height: 297mm;
+    margin: 20px auto;
+    background: var(--white);
+    box-shadow: 0 8px 50px rgba(0,0,0,.22);
+    overflow: hidden;
+    position: relative;
+  }
+
+  /* ══ HERO ══ */
+  .hero {
+    background: var(--dark);
+    padding: 0;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Ghana stripe at TOP */
+  .flag-top {
+    display: flex;
+    height: 7px;
+  }
+  .flag-top span { flex: 1; }
+  .ft-red   { background: var(--red); }
+  .ft-gold  { background: var(--gold); }
+  .ft-green { background: var(--green); }
+
+  /* Decorative circles */
+  .hero-circle-1 {
+    position: absolute;
+    width: 280px; height: 280px;
+    background: radial-gradient(circle, rgba(252,209,22,.12) 0%, transparent 70%);
+    border-radius: 50%;
+    top: -60px; right: -60px;
+  }
+  .hero-circle-2 {
+    position: absolute;
+    width: 180px; height: 180px;
+    background: radial-gradient(circle, rgba(0,107,63,.25) 0%, transparent 70%);
+    border-radius: 50%;
+    bottom: -40px; left: 20px;
+  }
+
+  .hero-inner {
+    padding: 22px 26px 20px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .hero-top-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 10px;
+  }
+
+  .logo-badge {
+    width: 60px; height: 60px;
+    background: linear-gradient(135deg, var(--gold), #e6a800);
+    border-radius: 16px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 30px;
+    flex-shrink: 0;
+    box-shadow: 0 6px 20px rgba(252,209,22,.35);
+  }
+
+  .brand-text .brand-name {
+    font-family: 'Oswald', sans-serif;
+    font-size: 28px;
+    font-weight: 900;
+    color: var(--white);
+    letter-spacing: 1px;
+    line-height: 1;
+  }
+  .brand-text .brand-name span { color: var(--gold); }
+  .brand-text .brand-sub {
+    font-size: 10.5px;
+    color: rgba(255,255,255,.65);
+    font-weight: 700;
+    letter-spacing: .5px;
+    text-transform: uppercase;
+    margin-top: 3px;
+  }
+
+  .hero-headline {
+    font-family: 'Oswald', sans-serif;
+    font-size: 19px;
+    font-weight: 700;
+    color: var(--gold);
+    line-height: 1.2;
+    margin-bottom: 8px;
+    letter-spacing: .3px;
+  }
+
+  .hero-desc {
+    font-size: 11.5px;
+    color: rgba(255,255,255,.82);
+    line-height: 1.65;
+    max-width: 480px;
+    margin-bottom: 14px;
+  }
+
+  .hero-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .hbadge {
+    font-size: 9.5px;
+    font-weight: 800;
+    padding: 4px 11px;
+    border-radius: 20px;
+    letter-spacing: .4px;
+    text-transform: uppercase;
+  }
+  .hb-gold  { background: var(--gold); color: #3a2500; }
+  .hb-green { background: var(--green); color: #fff; }
+  .hb-red   { background: var(--red); color: #fff; }
+  .hb-blue  { background: var(--blue); color: #fff; }
+  .hb-outline {
+    background: transparent;
+    border: 1.5px solid rgba(255,255,255,.4);
+    color: rgba(255,255,255,.85);
+  }
+
+  /* ══ WEB STRIP ══ */
+  .web-strip {
+    background: var(--blue);
+    padding: 7px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }
+  .web-strip .ws-label {
+    font-size: 10px;
+    color: rgba(255,255,255,.75);
+    font-weight: 700;
+  }
+  .web-strip .ws-url {
+    font-family: 'Oswald', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--gold);
+    letter-spacing: .5px;
+    border-bottom: 2px solid var(--gold);
+    padding-bottom: 1px;
+  }
+
+  /* ══ BODY ══ */
+  .body-wrap { padding: 16px 20px 18px; }
+
+  /* ══ BIG IMPACT STAT ROW ══ */
+  .stat-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    margin-bottom: 14px;
+  }
+  .stat-card {
+    background: var(--dark);
+    border-radius: 10px;
+    padding: 10px 8px;
+    text-align: center;
+  }
+  .stat-card .stat-num {
+    font-family: 'Oswald', sans-serif;
+    font-size: 22px;
+    font-weight: 900;
+    color: var(--gold);
+    line-height: 1;
+  }
+  .stat-card .stat-label {
+    font-size: 8.5px;
+    color: rgba(255,255,255,.7);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .4px;
+    margin-top: 3px;
+    line-height: 1.3;
+  }
+
+  /* ══ SECTION TITLE ══ */
+  .sec-title {
+    font-family: 'Oswald', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--blue);
+    border-left: 4px solid var(--gold);
+    padding-left: 8px;
+    margin: 14px 0 10px;
+  }
+
+  /* ══ FEATURES GRID ══ */
+  .feat-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 7px;
+    margin-bottom: 12px;
+  }
+  .feat-card {
+    border-radius: 10px;
+    padding: 10px 11px;
+    border: 1.5px solid #dde5f4;
+    background: #f7f9ff;
+    position: relative;
+    overflow: hidden;
+  }
+  .feat-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+  }
+  .fc-blue::before  { background: var(--blue); }
+  .fc-green::before { background: var(--green); }
+  .fc-gold::before  { background: var(--gold); }
+  .fc-red::before   { background: var(--red); }
+  .fc-purple::before{ background: #7C3AED; }
+  .fc-teal::before  { background: #0891B2; }
+
+  .feat-icon { font-size: 17px; margin-bottom: 4px; }
+  .feat-name {
+    font-size: 10px;
+    font-weight: 900;
+    color: var(--dark);
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    letter-spacing: .3px;
+  }
+  .feat-list { list-style: none; }
+  .feat-list li {
+    font-size: 9px;
+    color: #374151;
+    padding: 1.5px 0 1.5px 11px;
+    position: relative;
+    line-height: 1.4;
+  }
+  .feat-list li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--green);
+    font-weight: 900;
+    font-size: 8.5px;
+  }
+
+  /* ══ BECE BOX ══ */
+  .bece-box {
+    background: linear-gradient(135deg, #3730a3, #6d28d9);
+    color: white;
+    border-radius: 12px;
+    padding: 12px 14px;
+    margin-bottom: 10px;
+  }
+  .bece-box h3 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--gold);
+    margin-bottom: 7px;
+    letter-spacing: .5px;
+  }
+  .bece-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 5px;
+  }
+  .bece-item {
+    background: rgba(255,255,255,.1);
+    border-radius: 6px;
+    padding: 6px 8px;
+    font-size: 8.5px;
+    color: rgba(255,255,255,.9);
+    border-left: 3px solid var(--gold);
+    line-height: 1.4;
+  }
+  .bece-item strong {
+    display: block;
+    font-size: 9px;
+    color: var(--gold);
+    margin-bottom: 2px;
+    font-weight: 900;
+  }
+
+  /* ══ SMS NOTIFY ══ */
+  .notify-box {
+    background: #f0fdf4;
+    border: 2px solid #86efac;
+    border-radius: 10px;
+    padding: 10px 12px;
+    margin-bottom: 10px;
+  }
+  .notify-box h4 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--green);
+    margin-bottom: 6px;
+    letter-spacing: .3px;
+  }
+  .channel-row {
+    display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 8px;
+  }
+  .channel {
+    background: white;
+    border: 1.5px solid #86efac;
+    border-radius: 20px;
+    padding: 3px 10px;
+    font-size: 9px;
+    font-weight: 800;
+    color: var(--green);
+  }
+  .sms-wrap {
+    display: flex; gap: 12px; align-items: flex-start;
+  }
+  .phone-shell {
+    width: 128px; flex-shrink: 0;
+    background: #1a1a1a;
+    border-radius: 16px;
+    padding: 7px 6px;
+    box-shadow: 0 4px 14px rgba(0,0,0,.25);
+  }
+  .phone-inner { background: #000; border-radius: 10px; overflow: hidden; }
+  .phone-bar {
+    background: #1a1a1a;
+    padding: 4px 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .phone-bar span { font-size: 7px; color: #aaa; font-weight: 700; }
+  .phone-header {
+    background: #2a2a2a;
+    padding: 5px 8px;
+    border-bottom: 1px solid #333;
+    text-align: center;
+    font-size: 8px; color: #fff; font-weight: 900;
+  }
+  .phone-body {
+    background: #1c1c1e;
+    padding: 6px;
+    min-height: 100px;
+  }
+  .sms-bubble {
+    background: #2c2c2e;
+    border-radius: 8px 8px 8px 2px;
+    padding: 6px 7px;
+  }
+  .sms-bubble p {
+    font-size: 7px; color: #e5e5ea; line-height: 1.5; margin: 0 0 3px;
+  }
+  .sms-bubble .sms-link {
+    font-size: 6.5px; color: #4da6ff; word-break: break-all; line-height: 1.4;
+    display: block; margin-bottom: 3px;
+  }
+  .sms-note { font-size: 6px; color: #8e8e93; margin-top: 3px !important; }
+  .sms-details {
+    flex: 1;
+  }
+  .sms-details h5 {
+    font-size: 9px; color: #166534; font-weight: 800; margin-bottom: 5px;
+  }
+  .sms-details ul { list-style: none; }
+  .sms-details li {
+    font-size: 8.5px; color: #374151;
+    padding: 2px 0 2px 12px;
+    position: relative; line-height: 1.5;
+  }
+  .sms-details li::before {
+    content: '✓';
+    position: absolute; left: 0;
+    color: #16a34a; font-weight: 900; font-size: 8px;
+  }
+
+  /* ══ TWO COL ══ */
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+
+  /* ROLES */
+  .roles-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px;
+  }
+  .role-card {
+    border: 1.5px solid #dde5f4;
+    border-radius: 8px;
+    padding: 8px 9px;
+    background: #f7f9ff;
+  }
+  .role-title {
+    font-size: 9px;
+    font-weight: 900;
+    color: var(--blue);
+    margin-bottom: 4px;
+    text-transform: uppercase;
+    letter-spacing: .3px;
+  }
+  .role-list { list-style: none; }
+  .role-list li {
+    font-size: 8px; color: #374151;
+    padding: 1.5px 0 1.5px 10px;
+    position: relative; line-height: 1.4;
+  }
+  .role-list li::before {
+    content: '•';
+    position: absolute; left: 0;
+    color: var(--blue); font-weight: 900;
+  }
+
+  /* GRADING */
+  .grade-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 8.5px;
+  }
+  .grade-table th {
+    background: var(--blue);
+    color: white;
+    padding: 4px 6px;
+    text-align: center;
+    font-size: 8.5px;
+  }
+  .grade-table td {
+    border: 1px solid #dde5f4;
+    padding: 3px 6px;
+    text-align: center;
+  }
+  .grade-table tr:nth-child(even) td { background: #f0f4ff; }
+  .g1 { background: #d4edda !important; font-weight: 800; }
+  .g2 { background: #c3e6cb !important; }
+  .g3 { background: #d0f0c0 !important; }
+  .g4 { background: #fff3cd !important; }
+  .g5 { background: #fff3cd !important; }
+  .g6 { background: #ffe8a1 !important; }
+  .g7 { background: #ffd9a8 !important; }
+  .g8 { background: #ffc5a8 !important; }
+  .g9 { background: #f8d7da !important; color: #721c24; font-weight: 800; }
+
+  /* ══ WHY BOX ══ */
+  .why-box {
+    background: linear-gradient(135deg, var(--dark) 0%, #1a3a5c 100%);
+    color: white;
+    border-radius: 12px;
+    padding: 12px 14px;
+    margin-bottom: 10px;
+  }
+  .why-box h3 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--gold);
+    margin-bottom: 8px;
+    letter-spacing: .5px;
+  }
+  .why-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3px 14px;
+  }
+  .why-grid li {
+    font-size: 9px;
+    color: rgba(255,255,255,.85);
+    padding: 2px 0 2px 14px;
+    position: relative;
+    list-style: none;
+    line-height: 1.4;
+  }
+  .why-grid li::before {
+    content: '⚡';
+    position: absolute;
+    left: 0;
+    font-size: 8px;
+    color: var(--gold);
+  }
+
+  /* ══ PRICING ══ */
+  .pricing-box {
+    background: linear-gradient(135deg, #065f46, #047857);
+    color: white;
+    border-radius: 12px;
+    padding: 14px 18px;
+    margin-bottom: 10px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    align-items: start;
+  }
+  .pricing-box h2 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 18px;
+    font-weight: 900;
+    color: var(--gold);
+    margin-bottom: 4px;
+  }
+  .pricing-box > div > p {
+    font-size: 9.5px;
+    color: rgba(255,255,255,.8);
+    margin-bottom: 8px;
+    line-height: 1.55;
+  }
+  .price-pill {
+    display: inline-block;
+    background: var(--gold);
+    color: #0D1B2A;
+    font-family: 'Oswald', sans-serif;
+    font-size: 17px;
+    font-weight: 900;
+    padding: 5px 16px;
+    border-radius: 30px;
+    letter-spacing: -.3px;
+  }
+  .pricing-box ul { list-style: none; }
+  .pricing-box li {
+    font-size: 9.5px;
+    color: rgba(255,255,255,.9);
+    padding: 2.5px 0 2.5px 14px;
+    position: relative;
+  }
+  .pricing-box li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--gold);
+    font-weight: 900;
+  }
+
+  /* ══ TRIAL BANNER ══ */
+  .trial-banner {
+    background: linear-gradient(90deg, var(--red) 0%, var(--gold) 50%, var(--green) 100%);
+    color: white;
+    text-align: center;
+    padding: 9px 10px;
+    font-family: 'Oswald', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  /* ══ CONTACT ══ */
+  .contact-box {
+    background: var(--dark);
+    color: white;
+    border-radius: 12px;
+    padding: 12px 18px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    align-items: center;
+    margin-top: 10px;
+  }
+  .contact-box h3 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--gold);
+    margin-bottom: 6px;
+    letter-spacing: .5px;
+  }
+  .contact-box .cl-sub {
+    font-size: 9px;
+    color: rgba(255,255,255,.65);
+    margin-bottom: 8px;
+    line-height: 1.5;
+  }
+  .phones { display: flex; flex-direction: column; gap: 5px; }
+  .phone-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(252,209,22,.12);
+    border: 1.5px solid rgba(252,209,22,.4);
+    border-radius: 8px;
+    padding: 6px 12px;
+    font-size: 12px;
+    font-weight: 900;
+    color: var(--gold);
+    letter-spacing: .5px;
+  }
+  .website-link {
+    margin-top: 7px;
+    font-size: 10px;
+    color: #60A5FA;
+    font-weight: 800;
+    letter-spacing: .3px;
+  }
+  .contact-box ul { list-style: none; }
+  .contact-box li {
+    font-size: 9px;
+    color: rgba(255,255,255,.8);
+    padding: 2.5px 0 2.5px 14px;
+    position: relative;
+    line-height: 1.45;
+  }
+  .contact-box li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--gold);
+    font-weight: 900;
+  }
+
+  /* ══ FOOTER ══ */
+  .footer {
+    text-align: center;
+    font-size: 8.5px;
+    color: #6b7280;
+    padding: 8px;
+    border-top: 1px solid #e5e7eb;
+    background: #f8faff;
+  }
+
+  @media print {
+    body { background: white; }
+    .page { width: 210mm; min-height: 297mm; margin: 0; box-shadow: none; }
+    @page { size: A4 portrait; margin: 0; }
+  }
+</style>
+</head>
+<body>
+
+<div class="page">
+
+  <!-- ══ HERO ══ -->
+  <div class="hero">
+    <div class="flag-top">
+      <span class="ft-red"></span>
+      <span class="ft-gold"></span>
+      <span class="ft-green"></span>
+    </div>
+    <div class="hero-circle-1"></div>
+    <div class="hero-circle-2"></div>
+
+    <div class="hero-inner">
+      <div class="hero-top-row">
+        <div class="logo-badge">📊</div>
+        <div class="brand-text">
+          <div class="brand-name">SBA <span>PRO</span></div>
+          <div class="brand-sub">School Based Assessment System</div>
+        </div>
+      </div>
+
+      <div class="hero-headline">
+        Stop Writing Report Cards by Hand.<br>
+        Your Entire School — Managed in Minutes. 🇬🇭
+      </div>
+
+      <div class="hero-desc">
+        Enter scores, auto-calculate grades, print beautiful report cards, and SMS results to parents — all from your phone or computer. Built 100% for Ghana's GES &amp; BECE system.
+      </div>
+
+      <div class="hero-badges">
+        <span class="hbadge hb-gold">✅ GES-Aligned Grading</span>
+        <span class="hbadge hb-green">📱 Works on Any Phone</span>
+        <span class="hbadge hb-red">🎯 BECE Mock Analysis</span>
+        <span class="hbadge hb-blue">📲 SMS to Parents</span>
+        <span class="hbadge hb-outline">🔒 Secure &amp; Private</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ WEB STRIP ══ -->
+  <div class="web-strip">
+    <span class="ws-label">🌐 Visit &amp; Try a Live Demo:</span>
+    <span class="ws-url">sba.techlawsoftwares.com</span>
+  </div>
+
+  <div class="body-wrap">
+
+    <!-- ══ IMPACT STATS ══ -->
+    <div class="stat-row">
+      <div class="stat-card">
+        <div class="stat-num">3-Day</div>
+        <div class="stat-label">FREE Trial<br>No Card Needed</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">5 Min</div>
+        <div class="stat-label">To Register<br>Your School</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">0 GHS</div>
+        <div class="stat-label">Monthly Fee<br>Pay Once Only</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">∞</div>
+        <div class="stat-label">Unlimited Students<br>&amp; Teachers</div>
+      </div>
+    </div>
+
+    <!-- ══ CORE FEATURES ══ -->
+    <div class="sec-title">💼 Everything Your School Needs</div>
+
+    <div class="feat-grid">
+
+      <div class="feat-card fc-blue">
+        <div class="feat-icon">👥</div>
+        <div class="feat-name">Student Management</div>
+        <ul class="feat-list">
+          <li>Add, edit &amp; delete students</li>
+          <li>Upload student photos</li>
+          <li>Bulk import via CSV/Excel</li>
+          <li>Search by name, ID or class</li>
+          <li>One-click class promotion</li>
+          <li>BECE index numbers</li>
+          <li>Attendance &amp; conduct</li>
+        </ul>
+      </div>
+
+      <div class="feat-card fc-green">
+        <div class="feat-icon">📝</div>
+        <div class="feat-name">Score Entry System</div>
+        <ul class="feat-list">
+          <li>Test 1, Group Work, Test 2, Project</li>
+          <li>End-of-term Exam Score</li>
+          <li>Auto-calculates Class + Exam (50/50)</li>
+          <li>Single student or whole class view</li>
+          <li>Multi-stream support (A, B, C, D)</li>
+          <li>Subject password protection</li>
+          <li>Teacher remarks per student</li>
+        </ul>
+      </div>
+
+      <div class="feat-card fc-gold">
+        <div class="feat-icon">📊</div>
+        <div class="feat-name">Reports &amp; Analysis</div>
+        <ul class="feat-list">
+          <li>Full class broadsheet + rankings</li>
+          <li>Individual report cards</li>
+          <li>Print all reports — one click</li>
+          <li>Top 10 &amp; Bottom 10 performers</li>
+          <li>Gender performance breakdown</li>
+          <li>Result statistics &amp; analysis</li>
+          <li>Export to PDF</li>
+        </ul>
+      </div>
+
+      <div class="feat-card fc-red">
+        <div class="feat-icon">📲</div>
+        <div class="feat-name">Parent Notifications</div>
+        <ul class="feat-list">
+          <li>Send report card link by SMS</li>
+          <li>Parents view results on phone</li>
+          <li>Fees outstanding alerts</li>
+          <li>No app needed for parents</li>
+          <li>Secure HMAC-signed links</li>
+          <li>Notify whole class at once</li>
+        </ul>
+      </div>
+
+      <div class="feat-card fc-purple">
+        <div class="feat-icon">💰</div>
+        <div class="feat-name">Fees Management</div>
+        <ul class="feat-list">
+          <li>Set fees per class &amp; term</li>
+          <li>Track payments &amp; balances</li>
+          <li>Per-student fee records</li>
+          <li>SMS reminders for arrears</li>
+          <li>Fees summary report</li>
+          <li>Enable/disable per school</li>
+        </ul>
+      </div>
+
+      <div class="feat-card fc-teal">
+        <div class="feat-icon">⚙️</div>
+        <div class="feat-name">School Settings</div>
+        <ul class="feat-list">
+          <li>Upload your school logo</li>
+          <li>Set academic year &amp; term</li>
+          <li>Configure grading system</li>
+          <li>Reopen &amp; vacation dates</li>
+          <li>District &amp; circuit fields (GES)</li>
+          <li>Headmaster name &amp; signature</li>
+          <li>New term setup — 1 click</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- ══ BECE ══ -->
+    <div class="bece-box">
+      <h3>🎯 SPECIAL FEATURE — BECE Mock Examination Analysis</h3>
+      <div class="bece-grid">
+        <div class="bece-item"><strong>12-Section Report</strong>Detailed BECE-style analysis matching GES format exactly</div>
+        <div class="bece-item"><strong>Aggregate Stats</strong>6-30, 6-36, 6-40 pass rates auto-calculated</div>
+        <div class="bece-item"><strong>Subject Grade Tables</strong>Grade distribution per subject across all candidates</div>
+        <div class="bece-item"><strong>Pass/Fail Breakdown</strong>Instant summary of who qualifies at each aggregate</div>
+        <div class="bece-item"><strong>Gender Analysis</strong>Boys vs Girls performance by subject</div>
+        <div class="bece-item"><strong>Print as Landscape PDF</strong>Ready to hand to GES or show at PTA meetings</div>
+      </div>
+    </div>
+
+    <!-- ══ SMS ══ -->
+    <div class="notify-box">
+      <h4>📱 Send Report Cards to Parents Instantly — via SMS</h4>
+      <div class="channel-row">
+        <span class="channel">📱 SMS</span>
+        <span class="channel">🔗 Secure Report Link</span>
+        <span class="channel">💸 Fees Reminders</span>
+        <span class="channel">📣 Class Announcements</span>
+      </div>
+      <div class="sms-wrap">
+        <div class="phone-shell">
+          <div class="phone-inner">
+            <div class="phone-bar">
+              <span>9:41 AM</span>
+              <span>📶 🔋</span>
+            </div>
+            <div class="phone-header">SBAPRO</div>
+            <div class="phone-body">
+              <div class="sms-bubble">
+                <p>Dear Parent, the Term 2 report card of <strong style="color:#fff;">Abena Mensah</strong> (Basic 8A) is ready. View it here:</p>
+                <span class="sms-link">https://sba.techlawsoftwares.com/public_report.php?sid=142&amp;cid=5&amp;schid=3&amp;t=a9f3e1c0b2</span>
+                <p>Overall Position: <strong style="color:#FCD116;">3rd</strong>. Total Score: <strong style="color:#fff;">542/700</strong>.</p>
+                <p style="margin-top:3px;">FEES NOTICE: GHS 120.00 outstanding for Term 2. Please settle at the school accounts office.</p>
+                <p class="sms-note">Delivered via SBA Pro</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="sms-details">
+          <h5>✅ What parents see in their SMS:</h5>
+          <ul>
+            <li>Child's name, class &amp; term</li>
+            <li>Secure link to full report card</li>
+            <li>Overall position &amp; total score</li>
+            <li>Fees outstanding reminder (if any)</li>
+            <li>No app install needed — just tap the link</li>
+            <li>Full report with school logo, all subject scores, grades, conduct &amp; headmaster remarks</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══ ROLES + GRADING ══ -->
+    <div class="two-col">
+      <div>
+        <div class="sec-title">👤 User Roles &amp; Access</div>
+        <div class="roles-grid">
+          <div class="role-card">
+            <div class="role-title">🔑 Admin</div>
+            <ul class="role-list">
+              <li>Full system access</li>
+              <li>Manage all teachers</li>
+              <li>Promote students</li>
+              <li>All settings &amp; reports</li>
+            </ul>
+          </div>
+          <div class="role-card">
+            <div class="role-title">👨‍🏫 Subject Teacher</div>
+            <ul class="role-list">
+              <li>Enter assigned scores</li>
+              <li>Multi-class card view</li>
+              <li>Subject password</li>
+              <li>Add remarks</li>
+            </ul>
+          </div>
+          <div class="role-card">
+            <div class="role-title">🎓 Form Master</div>
+            <ul class="role-list">
+              <li>Class dashboard</li>
+              <li>View broadsheet</li>
+              <li>Generate report cards</li>
+              <li>Monitor score entry</li>
+            </ul>
+          </div>
+          <div class="role-card">
+            <div class="role-title">🌟 Dual-Role</div>
+            <ul class="role-list">
+              <li>Teach &amp; manage a class</li>
+              <li>Auto role detection</li>
+              <li>Smart permissions</li>
+              <li>Monitor other subjects</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="sec-title">🎓 GES Grading (Built In)</div>
+        <table class="grade-table">
+          <tr><th>Grade</th><th>Score</th><th>Remarks</th></tr>
+          <tr><td class="g1">1</td><td>90 – 100</td><td>Excellent</td></tr>
+          <tr><td class="g2">2</td><td>80 – 89</td><td>Very Good</td></tr>
+          <tr><td class="g3">3</td><td>70 – 79</td><td>Good</td></tr>
+          <tr><td class="g4">4</td><td>60 – 69</td><td>High Average</td></tr>
+          <tr><td class="g5">5</td><td>55 – 59</td><td>Average</td></tr>
+          <tr><td class="g6">6</td><td>50 – 54</td><td>Low Average</td></tr>
+          <tr><td class="g7">7</td><td>40 – 49</td><td>Below Average</td></tr>
+          <tr><td class="g8">8</td><td>35 – 39</td><td>Weak</td></tr>
+          <tr><td class="g9">9</td><td>0  – 34</td><td>Fail</td></tr>
+        </table>
+        <div style="font-size:8px;color:#555;margin-top:4px;">
+          BECE Aggregate: Best 6 subjects (4 core + 2 electives). Range 6–48. Fully automated.
+        </div>
+      </div>
+    </div>
+
+    <!-- ══ WHY SCHOOLS CHOOSE ══ -->
+    <div class="why-box">
+      <h3>⚡ Why Schools Across Ghana Are Switching to SBA Pro</h3>
+      <ul class="why-grid">
+        <li>Works on any smartphone — no app to install</li>
+        <li>Teachers enter scores from classroom, any time</li>
+        <li>Auto-calculates grades, positions &amp; totals</li>
+        <li>Professional report cards with school logo</li>
+        <li>Parent SMS notification in seconds</li>
+        <li>BECE mock analysis report in one click</li>
+        <li>Multiple classes and streams supported</li>
+        <li>Saves weeks of manual report card writing</li>
+        <li>Secure — each school sees only their data</li>
+        <li>KG-level &amp; Primary grading supported too</li>
+        <li>Class teacher monitoring dashboard</li>
+        <li>Fully compliant with GES assessment format</li>
+      </ul>
+    </div>
+
+    <!-- ══ PRICING ══ -->
+    <div class="pricing-box">
+      <div>
+        <h2>💰 Simple, Fair Pricing</h2>
+        <p>No monthly fees. No subscriptions. Pay once and your school uses the system forever — all features included, nothing locked away.</p>
+        <div class="price-pill">Pay Once. Own Forever.</div>
+        <p style="margin-top:7px;font-size:8.5px;color:rgba(255,255,255,.6);">Contact us for your school's price</p>
+      </div>
+      <div>
+        <ul>
+          <li>3-Day FREE trial — no credit card needed</li>
+          <li>Unlimited students &amp; teachers</li>
+          <li>All features included — nothing locked</li>
+          <li>Free updates &amp; new features always</li>
+          <li>Mobile access at no extra cost</li>
+          <li>Technical support included</li>
+          <li>Data export anytime (Excel, PDF)</li>
+          <li>Scores are never lost — safe cloud storage</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- ══ TRIAL BANNER ══ -->
+    <div class="trial-banner">
+      🎉 Start Your FREE 3-Day Trial Today — No Payment Required!
+    </div>
+
+    <!-- ══ CONTACT ══ -->
+    <div class="contact-box">
+      <div>
+        <h3>📞 Register Your School Today</h3>
+        <div class="cl-sub">Call or WhatsApp to register, book a demo, or ask questions. Setup takes under 5 minutes!</div>
+        <div class="phones">
+          <div class="phone-btn">📱 0257 514 418</div>
+          <div class="phone-btn">📱 0502 160 502</div>
+        </div>
+        <div class="website-link">🌐 sba.techlawsoftwares.com</div>
+      </div>
+      <div>
+        <ul>
+          <li>Designed for Ghana Basic Schools (JHS &amp; Primary)</li>
+          <li>Registration takes less than 5 minutes</li>
+          <li>Your school gets its own private login</li>
+          <li>Setup support provided at no extra cost</li>
+          <li>Trusted by schools across Ghana</li>
+          <li>Developer available for on-site demos</li>
+        </ul>
+      </div>
+    </div>
+
+  </div><!-- /body-wrap -->
+
+  <div class="footer">
+    SBA Pro — School Based Assessment System &nbsp;|&nbsp; Powered by TechLaw Softwares &nbsp;|&nbsp; sba.techlawsoftwares.com &nbsp;|&nbsp; 0257514418 / 0502160502
+  </div>
+
+</div><!-- /page -->
+
+</body>
+</html>

@@ -1,0 +1,13 @@
+Options -Indexes
+
+RewriteEngine On
+
+# Redirect /sitemap and /sitemap.xml to sitemap.php
+RewriteRule ^sitemap\.xml$ /sitemap.php [R=301,L]
+RewriteRule ^sitemap$ /sitemap.php [R=301,L]
+
+# Force HTTPS (production only — skip on localhost/127.0.0.1)
+RewriteCond %{HTTPS} off
+RewriteCond %{HTTP_HOST} !^localhost [NC]
+RewriteCond %{HTTP_HOST} !^127\.0\.0\.1
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]

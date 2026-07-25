@@ -1,0 +1,57 @@
+User-agent: *
+
+# Allow public pages to be indexed
+Allow: /login.php
+Allow: /school_register.php
+Allow: /public_report.php
+Allow: /assets/
+
+# Block all private/admin pages
+Disallow: /dashboard.php
+Disallow: /scores.php
+Disallow: /broadsheet.php
+Disallow: /analysis.php
+Disallow: /fees.php
+Disallow: /settings.php
+Disallow: /manage_classes.php
+Disallow: /manage_parents.php
+Disallow: /manage_streams.php
+Disallow: /manage_subjects.php
+Disallow: /assign_form_masters.php
+Disallow: /assign_subject_masters.php
+Disallow: /grading_system.php
+Disallow: /kg_grading_system.php
+Disallow: /mock_settings.php
+Disallow: /mock_analysis.php
+Disallow: /result-analysis.php
+Disallow: /notify_class.php
+Disallow: /student-report.php
+Disallow: /student-report-full.php
+Disallow: /print_all_reports.php
+Disallow: /broadsheet.php
+Disallow: /export_analysis_pdf.php
+Disallow: /export_class_reports.php
+Disallow: /export_mock_analysis_pdf.php
+Disallow: /export_result_analysis_pdf.php
+Disallow: /change_password.php
+Disallow: /send_report_card.php
+Disallow: /download_generated_reports.php
+Disallow: /download_student_template.php
+Disallow: /generate_reports_job.php
+Disallow: /check_session.php
+Disallow: /logout.php
+
+# Block all system directories
+Disallow: /config/
+Disallow: /controllers/
+Disallow: /helpers/
+Disallow: /vendor/
+Disallow: /database/
+Disallow: /backups/
+Disallow: /temp/
+Disallow: /scratch/
+Disallow: /uploads/
+Disallow: /SBA/
+
+# Sitemap location
+Sitemap: https://sba.techlawsoftwares.com/sitemap.php

@@ -1,0 +1,7 @@
+# Prevent execution of PHP (and other scripts) in this directory
+<FilesMatch "\.(php|php3|php4|php5|php7|phtml|pl|py|jsp|asp|sh|cgi)$">
+    Require all denied
+</FilesMatch>
+
+# Only allow image/document file types
+Options -Indexes

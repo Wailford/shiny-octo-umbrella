@@ -1,0 +1,265 @@
+/* =========================================================
+   SBA SYSTEM – COMPREHENSIVE MOBILE RESPONSIVE STYLESHEET
+   Covers all pages, app-like experience on all screen sizes
+   ========================================================= */
+
+/* ── Reset & Base ── */
+*, *::before, *::after {
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+}
+
+html {
+    font-size: 16px;
+    -webkit-text-size-adjust: 100%;
+    scroll-behavior: smooth;
+}
+
+body {
+    overflow-x: hidden;
+    width: 100%;
+    -webkit-font-smoothing: antialiased;
+}
+
+img { max-width: 100%; height: auto; }
+
+/* ── Touch-Friendly Tap Targets ── */
+button, .btn, a.btn, input[type="submit"], input[type="button"],
+select, input[type="checkbox"], input[type="radio"] {
+    min-height: 44px;
+    touch-action: manipulation;
+}
+
+/* ── Scrollable Tables (global) ── */
+.table-responsive, .table-container, .scores-table, .broadsheet-container {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* =========================================================
+   PHONE — max-width: 768px
+   ========================================================= */
+@media (max-width: 768px) {
+
+    body { font-size: 0.9rem; }
+    h1 { font-size: 1.35rem; }
+    h2 { font-size: 1.2rem; }
+    h3 { font-size: 1.05rem; }
+    h4 { font-size: 0.95rem; }
+
+    /* ── Page container ── */
+    .container {
+        padding: 0 0.75rem !important;
+        margin: 0.75rem auto !important;
+    }
+
+    /* ── Cards ── */
+    .card {
+        padding: 1rem !important;
+        border-radius: 10px !important;
+        margin-bottom: 1rem !important;
+    }
+
+    /* ── Section headers ── */
+    .section-header, .page-header {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 0.75rem !important;
+    }
+
+    /* ── Buttons ── */
+    .btn {
+        padding: 0.65rem 1rem !important;
+        font-size: 0.9rem !important;
+        border-radius: 8px !important;
+    }
+    .btn-group, .action-buttons, .button-row {
+        flex-direction: column !important;
+        gap: 0.5rem !important;
+        width: 100%;
+    }
+    .btn-group .btn, .action-buttons .btn { width: 100% !important; }
+
+    /* ── Forms ── */
+    .form-group { margin-bottom: 1rem !important; }
+    .form-control,
+    input[type="text"], input[type="email"], input[type="password"],
+    input[type="number"], input[type="tel"], input[type="date"],
+    select, textarea {
+        width: 100% !important;
+        padding: 0.75rem !important;
+        font-size: 16px !important;  /* prevents iOS auto-zoom */
+        border-radius: 8px !important;
+        min-height: 48px;
+    }
+    label { font-size: 0.875rem; margin-bottom: 0.35rem; }
+
+    /* ── Tables ── */
+    .table-responsive, .table-container {
+        margin: 0 -0.75rem;
+        padding: 0 0.75rem;
+    }
+    table { font-size: 0.8rem !important; }
+    table th, table td { padding: 0.5rem 0.4rem !important; white-space: nowrap; }
+    .col-name, .col-subject, td:first-child {
+        white-space: normal !important;
+        min-width: 100px;
+        max-width: 160px;
+        word-break: break-word;
+    }
+
+    /* ── Grids → single column ── */
+    .stats-grid, .schools-grid, .cards-grid, .grid-2, .grid-3, .grid-4 {
+        grid-template-columns: 1fr !important;
+        gap: 0.75rem !important;
+    }
+    .grid-2-mobile { grid-template-columns: repeat(2, 1fr) !important; }
+
+    /* ── Flex rows → stack ── */
+    .flex-row, .controls, .filter-row, .class-selector,
+    .selector-group-row, .form-row, .inline-form {
+        flex-direction: column !important;
+        align-items: stretch !important;
+        gap: 0.5rem !important;
+    }
+    .flex-row > *, .controls > *, .filter-row > *, .class-selector > * {
+        width: 100% !important;
+    }
+
+    /* ── Modals ── */
+    .modal-content,
+    [id$="Modal"] > div,
+    [id*="modal"] > div {
+        margin: 0.5rem !important;
+        max-width: calc(100vw - 1rem) !important;
+        max-height: 92vh !important;
+        overflow-y: auto !important;
+        padding: 1rem !important;
+        border-radius: 12px !important;
+    }
+
+    /* ── Dashboard stats ── */
+    .stat-card {
+        padding: 1rem !important;
+        display: flex !important;
+        align-items: center !important;
+        gap: 0.75rem !important;
+    }
+    .stat-card .stat-icon { font-size: 1.5rem !important; }
+    .stat-card .stat-value { font-size: 1.5rem !important; }
+
+    /* ── Alerts ── */
+    .alert {
+        padding: 0.75rem 1rem !important;
+        font-size: 0.875rem !important;
+        border-radius: 8px !important;
+    }
+
+    /* ── Settings page ── */
+    .settings-section, .section-card { padding: 1rem !important; }
+    .settings-grid { grid-template-columns: 1fr !important; }
+
+    /* ── Broadsheet ── */
+    .broadsheet-container, .broadsheet-table-wrap {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        margin: 0 -0.75rem;
+    }
+    .broadsheet-container table, .broadsheet-table { font-size: 0.7rem !important; min-width: 600px; }
+    .broadsheet-table th, .broadsheet-table td { padding: 0.25rem 0.2rem !important; }
+
+    /* ── Scores page ── */
+    .score-header-bar, .student-nav-bar {
+        flex-direction: column !important;
+        gap: 0.5rem !important;
+    }
+    .student-nav-bar button { width: 100% !important; }
+    input[type="number"].score-input, .score-input {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 0.75rem !important;
+        font-size: 1.1rem !important;
+        text-align: center;
+    }
+
+    /* ── Reports ── */
+    .report { padding: 0.75rem !important; font-size: 0.85rem !important; }
+
+    /* ── Tabs ── */
+    .tab-bar, .tabs {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        gap: 0 !important;
+    }
+    .tab-bar::-webkit-scrollbar { display: none; }
+    .tab-item, .tab-link { white-space: nowrap; padding: 0.65rem 0.9rem !important; font-size: 0.85rem !important; }
+
+    /* ── Manage pages ── */
+    .manage-table-wrap, .fee-table-container { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+
+    /* ── Misc ── */
+    .page-title-row { flex-direction: column !important; gap: 0.5rem !important; }
+    .bulk-actions { flex-direction: column !important; gap: 0.5rem !important; }
+    .hint-text-desktop { display: none !important; }
+    .desktop-only { display: none !important; }
+    body { padding-bottom: 70px !important; }
+}
+
+/* =========================================================
+   SMALL PHONE — max-width: 480px
+   ========================================================= */
+@media (max-width: 480px) {
+    html { font-size: 14px; }
+    .container { padding: 0 0.5rem !important; }
+    .card { padding: 0.875rem !important; }
+    table { font-size: 0.72rem !important; }
+    .modal-content, [id$="Modal"] > div {
+        margin: 0.25rem !important;
+        max-width: calc(100vw - 0.5rem) !important;
+    }
+    .stat-card .stat-value { font-size: 1.25rem !important; }
+    h1 { font-size: 1.2rem; }
+    h2 { font-size: 1.05rem; }
+    h3 { font-size: 0.95rem; }
+}
+
+/* =========================================================
+   TINY PHONE — max-width: 360px
+   ========================================================= */
+@media (max-width: 360px) {
+    html { font-size: 13px; }
+    .btn { padding: 0.6rem 0.75rem !important; font-size: 0.85rem !important; }
+}
+
+/* =========================================================
+   TABLET — 769px to 1024px
+   ========================================================= */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .container { padding: 0 1.25rem; }
+    .stats-grid { grid-template-columns: repeat(2, 1fr) !important; }
+    .grid-3 { grid-template-columns: repeat(2, 1fr) !important; }
+}
+
+/* =========================================================
+   DESKTOP — min-width: 769px
+   ========================================================= */
+@media (min-width: 769px) {
+    .mobile-only { display: none !important; }
+    .mobile-drawer, .drawer-overlay { display: none !important; }
+}
+
+/* =========================================================
+   LANDSCAPE PHONE
+   ========================================================= */
+@media (max-width: 900px) and (orientation: landscape) {
+    .header { padding: 0.4rem 0.75rem !important; }
+    body { padding-bottom: 50px !important; }
+}
+
+/* =========================================================
+   PRINT
+   ========================================================= */
+@media print {
+    .mobile-drawer, .drawer-overlay, .menu-toggle { display: none !important; }
+}
